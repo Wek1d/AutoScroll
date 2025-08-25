@@ -16,6 +16,8 @@ chrome.storage.local.get(defaults, function (options) {
     }
   })
 
+  // Default to "default" if not set
+  var iconStyle = options.iconStyle || "default";
 
   var RAD_TO_DEG = Math.PI / 180
 
@@ -55,12 +57,14 @@ chrome.storage.local.get(defaults, function (options) {
 
 
   function image(o) {
+    var style = options.iconStyle || "modern";
+    var suffix = (style === "classic" ? "-alt" : "");
     if (o.width && o.height) {
-      return chrome.runtime.getURL("data/images/origin/both.svg")
+      return chrome.runtime.getURL("data/images/origin/both" + suffix + ".svg")
     } else if (o.width) {
-      return chrome.runtime.getURL("data/images/origin/horizontal.svg")
+      return chrome.runtime.getURL("data/images/origin/horizontal" + suffix + ".svg")
     } else {
-      return chrome.runtime.getURL("data/images/origin/vertical.svg")
+      return chrome.runtime.getURL("data/images/origin/vertical" + suffix + ".svg")
     }
   }
 
@@ -283,7 +287,7 @@ chrome.storage.local.get(defaults, function (options) {
 
     startCycle(o.element, o.scroller, o.root)
 
-    addEventListener("wheel", mousewheel, true)
+    addEventListener("wheel", mousewheel, { capture: true, passive: false })
     addEventListener("mousemove", mousemove, true)
     addEventListener("mouseup", mouseup, true)
 

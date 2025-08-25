@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "AutoScroll (Redesigned by Wek1d)",
+  "version": "4.12",
+  "description": "Adds customizable autoscroll support to Chrome. Redesigned and revived by github.com/Wek1d for 2025+.",
+  "minimum_chrome_version": "88",
+  "icons": {
+    "128": "data/images/icons/icon128.png",
+    "16":  "data/images/icons/icon16.png",
+    "32":  "data/images/icons/icon32.png",
+    "48":  "data/images/icons/icon48.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "main.js"
+  },
+  "action": {
+    "default_popup": "data/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["data/defaults.js", "data/AutoScroll.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["data/images/origin/*.svg"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "author": "Original: Arda; Redesign: github.com/Wek1d",
+  "homepage_url": "https://github.com/Wek1d/autoscroll"
+}

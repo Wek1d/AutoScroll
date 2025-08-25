@@ -1,6 +1,7 @@
 "use strict";
 
 var defaults = {
+  iconStyle: "modern",
   dragThreshold: 10,
   moveThreshold: 10,
   moveSpeed: 10,

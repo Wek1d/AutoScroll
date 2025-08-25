@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 60 60" fill="none">
+  <circle cx="30" cy="30" r="28" stroke="black" stroke-width="2" fill="white"/>
+  <!-- Yukarı -->
+  <polygon points="30,10 22,20 38,20" fill="black"/>
+  <!-- Aşağı -->
+  <polygon points="30,50 22,40 38,40" fill="black"/>
+  <!-- Sol -->
+  <polygon points="10,30 20,22 20,38" fill="black"/>
+  <!-- Sağ -->
+  <polygon points="50,30 40,22 40,38" fill="black"/>
+</svg>

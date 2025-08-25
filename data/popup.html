@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      margin: 0;
+      padding: 1rem;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg, #fff);
+      color: var(--fg, #222);
+    }
+
+    /* Fix dark mode colors */
+    .setting-group {
+      background: var(--bg-light, #f5f5f5);
+      color: var(--fg, #222);
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 12px;
+    }
+
+    .dark-mode .setting-group {
+      background: var(--bg-darker, #131619);
+      color: var(--fg, #e0e0e0);
+    }
+
+    .setting-group h3 {
+      margin: 0 0 8px 0;
+      font-size: 0.9rem;
+      color: var(--fg-light, #666);
+      opacity: 0.8;
+    }
+
+    .dark-mode .setting-group h3 {
+      color: var(--fg, #e0e0e0);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border, #eee);
+    }
+
+    .logo { height: 24px; margin-right: 8px; }
+    
+    .settings {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .setting {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Modern Icon Selector */
+    .icon-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .icon-option {
+      padding: 8px;
+      border: 2px solid var(--border, #eee);
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .icon-option.selected {
+      border-color: var(--accent, #4d84ff);
+      background: var(--accent-light, #4d84ff15);
+    }
+
+    .icon-preview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .icon-preview img {
+      width: 20px;
+      height: 20px;
+      filter: var(--svg-filter, none);
+    }
+
+    /* Improved Slider */
+    .slider-container {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--fg-light, #666);
+      opacity: 0.8;
+    }
+
+    .dark-mode .slider-labels {
+      color: var(--fg, #e0e0e0);
+    }
+
+    .slider {
+      width: 100%;
+    }
+
+    /* Update CSS variables for dark mode */
+    .dark-mode {
+      --bg: #181c20;
+      --bg-darker: #131619;
+      --fg: #e0e0e0;
+      --fg-light: #a0a0a0;
+      --accent: #4d84ff;
+      --border: #2a2f35;
+    }
+
+    /* New Settings */
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 6px;
+      background: var(--accent, #4d84ff);
+      color: white;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.9; }
+
+    .btn.secondary {
+      background: var(--border, #eee);
+      color: var(--fg, #222);
+    }
+
+    .footer {
+      margin-top: 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border, #eee);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .footer a {
+      color: var(--accent, #4d84ff);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="images/origin/both.svg" alt="Logo" class="logo">
+    <h2>AutoScroll</h2>
+  </div>
+
+  <div class="settings">
+    <!-- Scroll Speed -->
+    <div class="setting">
+      <label>Scroll Speed</label>
+      <div class="slider-container">
+        <input type="range" class="slider" min="1" max="50" value="10">
+        <div class="slider-labels">
+          <span>Faster</span>
+          <span>Slower</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Icon Style -->
+    <div class="setting">
+      <label>Icon Style</label>
+      <div class="icon-selector">
+        <div class="icon-option" data-style="modern">
+          <span>Modern</span>
+          <div class="icon-preview modern-preview">
+            <!-- SVG previews added via JS -->
+          </div>
+        </div>
+        <div class="icon-option" data-style="classic">
+          <span>Classic</span>
+          <div class="icon-preview classic-preview">
+            <!-- SVG previews added via JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Settings -->
+    <div class="setting-group">
+      <h3>Behavior</h3>
+      <div class="setting">
+        <label>Scroll Acceleration</label>
+        <input type="checkbox" id="acceleration">
+      </div>
+      <div class="setting">
+        <label>Edge Scrolling</label>
+        <input type="checkbox" id="edgeScroll">
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="btn">Test Scroll</button>
+    <button class="btn secondary">Reset</button>
+  </div>
+
+  <div class="footer">
+    <a href="https://github.com/Wek1d/autoscroll" target="_blank">
+      GitHub
+    </a>
+    · 
+    <span>by Wek1d</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
