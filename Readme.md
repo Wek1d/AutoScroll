@@ -4,6 +4,7 @@
 [Badges section...]
 
 A powerful and modern autoscroll extension that brings smooth scrolling to Chrome. Fork of the original AutoScroll extension, completely redesigned with modern features and dark mode support.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b8fdcb5a-8ff1-461c-b5cc-0f69d09b368a" />
 
 ## ✨ Features
 
