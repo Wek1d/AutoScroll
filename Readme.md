@@ -1,7 +1,7 @@
 # ![AutoScroll Logo](data/images/origin/both.svg#gh-light-mode-only) ![AutoScroll Logo](data/images/origin/both-alt.svg#gh-dark-mode-only)  
 # AutoScroll (Redesigned by Wek1d)
 
-[Badges section...]
+Designed to M3 :)
 
 A powerful and modern autoscroll extension that brings smooth scrolling to Chrome. Fork of the original AutoScroll extension, completely redesigned with modern features and dark mode support.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b8fdcb5a-8ff1-461c-b5cc-0f69d09b368a" />
